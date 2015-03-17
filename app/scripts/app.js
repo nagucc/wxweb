@@ -27,6 +27,10 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/user/new/:userId/mpId/:mpId/ticket/:ticket', {
+        templateUrl: 'views/user/edit.html',
+        controller: 'UserNewCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
