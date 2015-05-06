@@ -1,0 +1,87 @@
+<div class="form-horizontal">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">姓名</label>
+    <div class="col-sm-4" ng-class="user.name === '' ? 'has-error':''" >
+    <input type="text" class="form-control has-error"  placeholder="请输入您的姓名"
+           ng-model="user.name" >
+      </div>
+
+    <label class="col-sm-2 control-label">性别</label>
+    <div class="col-sm-4" >
+      <select class="form-control" ng-model="user.isMale">
+        <option value="true" ng-selected="true">男</option>
+        <option value="false">女</option>
+      </select>
+    </div>
+
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">手机号码</label>
+    <div class="col-sm-4" ng-class="user.mobile === '' ? 'has-error':''">
+    <input type="text" class="form-control"  placeholder="请输入手机号码" ng-model="user.mobile" >
+    </div>
+
+    <label class="col-sm-2 control-label">电子邮件</label>
+    <div class="col-sm-4" ng-class="user.email === ''?'has-error':''">
+      <input type="email" class="form-control"  placeholder="请输入电子邮件地址" ng-model="user.email">
+    </div>
+  </div>
+
+
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">住宿安排</label>
+    <div class="col-sm-10">
+    <select class="form-control" ng-model="user.roomType">
+      <option value="不需要安排" ng-selected="true">不需要安排</option>
+      <option value="单间">单间</option>
+      <option value="标间">标间</option>
+    </select>
+      <span class="help-block">我们将尽量按您的要求为您安排房间。</span>
+      </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">单位名称</label>
+    <div class="col-sm-10" ng-class="user.deptName === ''?'has-error':''">
+    <input type="text" class="form-control"  placeholder="请输入单位名称" ng-model="user.deptName" >
+      </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">职称</label>
+    <div class="col-sm-4">
+    <input type="text" class="form-control"  placeholder="请输入您的职称" ng-model="user.zhicheng">
+      </div>
+
+    <label class="col-sm-2 control-label">职务</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control"  placeholder="请输入您的职务" ng-model="user.zhiwu">
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">到达方式</label>
+    <div class="col-sm-4">
+    <select class="form-control" ng-model="user.Ddfs">
+      <option ng-selected="true">请选择</option>
+      <option value="飞机">飞机</option>
+      <option value="火车">火车</option>
+      <option value="其他">其他</option>
+    </select>
+      </div>
+
+    <label class="col-sm-2 control-label">到达时间</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control"  placeholder="请输入您抵达的大概时间" ng-model="user.Ddsj" >
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2">
+    <button class="btn btn-primary" ng-click="actions.submit()">确定</button>
+    </div>
+  </div>
+</div>

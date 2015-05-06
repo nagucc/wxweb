@@ -1,0 +1,31 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th class="hidden-xs">#</th>
+    <th>名称</th>
+    <th>域名</th>
+    <th class="hidden-xs">类型</th>
+    <th>监控器数量</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="itres in itreses track by $index">
+      <td class="hidden-xs">{{$index + 1}}</td>
+      <td ng-switch="itres.type">
+        <i ng-switch-when="1" class="fa fa-server"></i>
+        <i ng-switch-when="2" class="fa fa-file-code-o"></i>
+        <i ng-switch-when="3" class="fa fa-plug"></i>
+        <i ng-switch-default class="fa fa-question-circle"></i>
+        <a href="#/it_resource/detail/{{itres._id}}">{{itres.name}}</a>
+      </td>
+      <td>{{itres.domain}}</td>
+      <td ng-switch="itres.type" class="hidden-xs">
+        <span ng-switch-when="1">服务器</span>
+        <span ng-switch-when="2">Web应用</span>
+        <span ng-switch-when="3">其他应用</span>
+        <span ng-switch-default>未知类型:{{itres.type}}</span>
+      </td>
+      <td>{{itres.monitor_count || '无'}}</td>
+    </tr>
+  </tbody>
+</table>

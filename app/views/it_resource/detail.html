@@ -1,0 +1,76 @@
+<div class="col-lg-offset-1 col-lg-10">
+
+  <div class="page-header">
+    <h1 ng-switch="itres.type">
+      <i ng-switch-when="1" class="fa fa-server"></i>
+      <i ng-switch-when="2" class="fa fa-file-code-o"></i>
+      <i ng-switch-when="3" class="fa fa-plug"></i>
+      {{itres.name}}
+      <small>
+        <i class="ace-icon fa fa-angle-double-right"></i>
+        <a href="#">{{itres.domain}}</a>
+      </small>
+    </h1>
+  </div>
+
+
+  <h3>
+    监控信息
+    <small>
+        <i class="ace-icon fa fa-angle-double-right"></i>
+        <a class="btn btn-primary btn-minier" href="#/it_resource/add-monitor/{{itres._id}}">新建监控</a>
+      </small>
+  </h3>
+
+  <div class="col-lg-3 pricing-box" ng-repeat="monitor in itres.monitors track by $index">
+    <div class="widget-box " ng-class="{'widget-color-blue': monitor.type === 1, 'widget-color-green': monitor.type === 2}">
+      <div class="widget-header">
+        <h5 class="widget-title bigger lighter" ng-switch="monitor.type">
+          <span ng-switch-when="1">Url 监控</span>
+          <span ng-switch-when="2">端口监控</span>
+          <span ng-switch-default>未知类型</span>
+        </h5>
+      </div>
+      <div class="widget-body">
+        <div class="widget-main">
+          <div class="price">
+            {{monitor.name}}
+          </div>
+          <hr/>
+          <dl>
+            <dt ng-switch="{{monitor.type}}">
+              <span ng-switch-when="1">Url</span>
+              <span ng-switch-when="2">端口号</span>
+            </dt>
+            <dd ng-switch="{{monitor.type}}">
+              <a href="{{monitor.url}}" ng-switch-when="1">{{monitor.url}}</a>
+              <span class="badge" ng-switch-when="2">{{monitor.port}}</span>
+            </dd>
+
+            <dt>监控提醒</dt>
+            <dd>
+              <span class="label label-success" ng-if="monitor.receivers.indexOf('wxqyh') > -1">微信</span>
+              <span class="label label-primary" ng-if="monitor.receivers.indexOf('sms') > -1">短信</span>
+              <span class="label label-info" ng-if="monitor.receivers.indexOf('email') > -1">Email</span>
+            </dd>
+          </dl>
+        </div>
+        <div>
+          <button class="btn btn-block btn-warning" ng-click="removeMonitor(itres._id, monitor.id)"
+                  confirm="确定要删除监控程序“{{monitor.name}}”吗？">
+            <i class="ace-icon fa fa-trash bigger-110"></i>
+            <span>删除</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="col-lg-12" />
+  <div class="col-lg-12">
+    <button class="btn btn-danger btn-block" ng-click="removeRes(itres._id)"
+      confirm="确定要删除IT资源“{{itres.name}}”吗？">
+      删除此资源
+    </button>
+  </div>
+</div>

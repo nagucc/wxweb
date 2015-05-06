@@ -1,0 +1,19 @@
+<div class="col-lg-offset-1 col-lg-10">
+
+  <h2>添加Url监控</h3>
+    <hr/>
+
+  <form form-for="monitor" validation-rules="MonitorRules" submit-with="submit(data)">
+    <text-field label="名称" attribute="name"  placeholder="用于显示给用户的友好名称"
+    	help="用于显示给用户的友好名称">
+  </text-field>
+
+    <text-field label="Url" attribute="url"  placeholder="待监控的Url地址"></text-field>
+
+    <checkbox-field label="使用微信企业号接收报警信息" attribute="wxReceiver"></checkbox-field>
+    <checkbox-field label="使用短信接收报警信息" attribute="smsReceiver"></checkbox-field>
+    <checkbox-field label="使用Email接收报警信息" attribute="emailReceiver"></checkbox-field>
+
+    <submit-button label="确定" button-class="btn btn-primary"></submit-button>
+  </form>
+</div>
